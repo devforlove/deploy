@@ -2,6 +2,7 @@ ORIGIN_JAR_PATH='/home/ubuntu/jenkins/batch/deploy/*.jar'
 ORIGIN_JAR_NAME=$(basename ${ORIGIN_JAR_PATH})
 TARGET_PATH='/home/ubuntu/jenkins/batch/application.jar'
 JAR_BOX_PATH='/home/ubuntu/jenkins/batch/jar/'
+JENKIN_JAR_PATH='/var/jenkins_home/batch/jar/'
 
 echo "  > 배포 JAR: "${ORIGIN_JAR_NAME}
 
@@ -15,4 +16,4 @@ echo "  > chown -h jenkins:jenkins ${JAR_BOX_PATH}${ORIGIN_JAR_NAME}"
 sudo chown -h jenkins:jenkins ${JAR_BOX_PATH}${ORIGIN_JAR_NAME}
 
 echo "  > sudo ln -s -f ${JAR_BOX_PATH}${ORIGIN_JAR_NAME} ${TARGET_PATH}"
-sudo ln -s -f ${JAR_BOX_PATH}${ORIGIN_JAR_NAME} ${TARGET_PATH}
+sudo ln -s -f ${JENKIN_JAR_PATH}${ORIGIN_JAR_NAME} ${TARGET_PATH}
