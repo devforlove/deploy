@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:13306/dashboard?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: root
+    password: rootpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+
+  batch: #TODO
+    jdbc:
+      initialize-schema: always
+    job.name: ${job.name:NONE}
+    chunk-size: 1000
